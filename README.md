@@ -1,16 +1,13 @@
-# dsw_2020_demo
+# Demo for Denver Startup Week Flutter Talk
 
-A new Flutter project.
+This sample Flutter project highlights key functionality for any Flutter app such as layout, routing, state management, and http requests.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This is just a starting point. If you are new to Flutter here are a few resources to get you started.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Code Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
+View Flutter's [online documentation](https://flutter.dev/docs) for tutorials,
 samples, guidance on mobile development, and a full API reference.

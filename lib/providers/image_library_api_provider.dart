@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:dsw_2020_demo/config.dart';
+import 'package:dsw_2020_demo/utils/config.dart';
 import 'package:dsw_2020_demo/models/unsplash_image.dart';
 
 class ImageLibraryApiProvider {
