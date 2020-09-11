@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:dsw_2020_demo/models/image_search.dart';
+import 'package:dsw_2020_demo/blocs/image_search.dart';
+import 'package:dsw_2020_demo/ui/breakpoints.dart';
 
-// https://flutter.dev/docs/cookbook/forms/validation
 class ImageSearchForm extends StatefulWidget {
   @override
   ImageSearchFormState createState() {
@@ -19,40 +19,67 @@ class ImageSearchFormState extends State<ImageSearchForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Container(
-        color: Colors.blueGrey[100],
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          children: <Widget>[
-            TextFormField(
-              controller: _searchFieldController,
-              // The validator receives the current value of the form field (what the user has entered).
-              validator: (value) {
-                if (value.isEmpty) {
-                  return 'Please enter a location.';
-                }
-                return null;
-              },
-              decoration: const InputDecoration(
-                filled: true,
-                fillColor: Colors.white,
-                suffixIcon: Icon(Icons.search),
-                labelText: 'Where do you want to go?',
-              ),
-            ),
-            RaisedButton(
-              onPressed: () {
-                // Trigger form validation. If the result is true, the value entered is valid.
-                if (_formKey.currentState.validate()) {
-                  context.read<ImageSearch>().searchImages(_searchFieldController.text);
-                }
-              },
-              child: Text('SUBMIT'),
-              color: Colors.blueGrey[300],
-            ),
-          ],
+    double deviceWidth = MediaQuery.of(context).size.width;
+    double textFieldWidth = deviceWidth - 50;
+    if (deviceWidth >= tabletBreakpoint) {
+      textFieldWidth = 300;
+    }
+
+    final List<Widget> _formWidgets = [
+      Container(
+        width: textFieldWidth,
+        child: TextFormField(
+          controller: _searchFieldController,
+          // The validator receives the current value of the form field (what the user has entered).
+          validator: (value) {
+            if (value.isEmpty) {
+              return 'Please enter a location.';
+            }
+            return null;
+          },
+          decoration: const InputDecoration(
+            filled: true,
+            fillColor: Colors.white,
+            suffixIcon: Icon(Icons.search),
+            labelText: 'Where do you want to go?',
+          ),
+        ),
+      ),
+      const SizedBox(height: 15, width: 15),
+      RaisedButton(
+        child: Container(
+          height: 50,
+          width: 130,
+          alignment: AlignmentDirectional.center,
+          child: Text('SUBMIT', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+        ),
+        color: Colors.cyan[800],
+        onPressed: () {
+          // Trigger form validation. If the result is true, the value entered is valid.
+          if (_formKey.currentState.validate()) {
+            context.read<ImageSearch>().searchImages(_searchFieldController.text);
+            context.read<ImageSearch>().resultTitle = _searchFieldController.text;
+          }
+        },
+      ),
+    ];
+
+    return Container(
+      width: deviceWidth,
+      color: Colors.blueGrey[100],
+      padding: const EdgeInsets.all(24.0),
+      child: Form(
+        key: _formKey,
+        child: Builder(
+          builder: (BuildContext context) {
+            if (deviceWidth >= tabletBreakpoint) {
+              return Row(children: _formWidgets);
+            } else {
+              return Column(
+                children: _formWidgets,
+              );
+            }
+          },
         ),
       ),
     );

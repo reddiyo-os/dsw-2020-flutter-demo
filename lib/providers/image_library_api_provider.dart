@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:dsw_2020_demo/config.dart';
-import 'package:dsw_2020_demo/models/unsplash_image_model.dart';
+import 'package:dsw_2020_demo/models/unsplash_image.dart';
 
 class ImageLibraryApiProvider {
   static Future<List<UnsplashImage>> searchImages(String query) async {

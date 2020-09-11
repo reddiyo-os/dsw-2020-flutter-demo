@@ -9,6 +9,29 @@
             "program": "lib/main.dart",
             "request": "launch",
             "type": "dart"
+        },
+        {
+            "name": "Flutter Web",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "chrome"
+        },
+        {
+            "name": "Flutter iOS",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "11150FB8-8998-489B-BE44-5D46BC2652B8"
+        }
+    ],
+    "compounds": [
+        {
+            "name": "All Devices",
+            "configurations": [
+                "Flutter Web",
+                "Flutter iOS"
+            ]
         }
     ]
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:dsw_2020_demo/models/unsplash_image_model.dart';
+import 'package:dsw_2020_demo/models/unsplash_image.dart';
 import 'package:dsw_2020_demo/providers/image_library_api_provider.dart';
 
 class ImageSearch extends ChangeNotifier {
-  String _resultTitle = 'SUGGESTED';
+  String _resultTitle = 'SUGGESTED DESTINATIONS';
   String get searchResultTitle => _resultTitle;
   set resultTitle(String searchQuery) {
     _resultTitle = 'RESULTS FOR: ${searchQuery.toUpperCase()}';
