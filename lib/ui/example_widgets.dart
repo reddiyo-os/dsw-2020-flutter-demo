@@ -17,7 +17,7 @@ class MyWidgetWithDependencies extends StatelessWidget {
     return Column(
       children: [
         Text('Hello World! My name is $name.'),
-        if (optionalLastName != null) Text('My last name is $optionalLastName')
+        if (optionalLastName != null) Text('My last name is $optionalLastName.')
       ],
     );
   }
