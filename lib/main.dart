@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:dsw_2020_demo/controllers/image_search.dart';
 import 'package:dsw_2020_demo/ui/home/home_page.dart';
 import 'package:dsw_2020_demo/ui/profile/profile_page.dart';
 import 'package:dsw_2020_demo/ui/favorites/favorites_page.dart';
@@ -11,6 +9,8 @@ void main() {
 }
 
 class VacationDreamBook extends StatelessWidget {
+  const VacationDreamBook({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

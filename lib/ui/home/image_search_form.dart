@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:dsw_2020_demo/controllers/image_search.dart';
+import 'package:dsw_2020_demo/models/image_search.dart';
 import 'package:dsw_2020_demo/ui/breakpoints.dart';
 
 class ImageSearchForm extends StatefulWidget {

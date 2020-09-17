@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:dsw_2020_demo/controllers/image_search.dart';
+import 'package:dsw_2020_demo/models/image_search.dart';
 import 'package:dsw_2020_demo/ui/home/image_search_form.dart';
 import 'package:dsw_2020_demo/ui/home/image_search_results.dart';
 import 'package:dsw_2020_demo/ui/navigation/navigation_drawer.dart';
