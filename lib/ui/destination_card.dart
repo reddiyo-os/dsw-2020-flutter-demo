@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:dsw_2020_demo/models/unsplash_image.dart';
+import 'package:dsw_2020_demo/ui/favorite_button.dart';
 
-class DestinationCard extends StatefulWidget {
+class DestinationCard extends StatelessWidget {
   final UnsplashImage image;
   DestinationCard(this.image);
-
-  @override
-  _DestinationCardState createState() => _DestinationCardState();
-}
-
-class _DestinationCardState extends State<DestinationCard> {
-  bool isFavorited = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,20 +15,8 @@ class _DestinationCardState extends State<DestinationCard> {
         border: Border.all(color: Colors.blueGrey[100], width: 6),
       ),
       child: Stack(children: [
-        Image.network(widget.image.imageUrl),
-        Container(
-          color: Colors.black.withAlpha(80),
-          height: 45,
-          width: 45,
-          child: IconButton(
-            icon: Icon(Icons.star, color: isFavorited ? Colors.pink[400] : Colors.white),
-            onPressed: () {
-              setState(() {
-                isFavorited = !isFavorited;
-              });
-            },
-          ),
-        )
+        Image.network(image.imageUrl),
+        FavoriteButton(),
       ]),
     );
   }

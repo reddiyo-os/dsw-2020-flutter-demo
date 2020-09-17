@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:dsw_2020_demo/blocs/image_search.dart';
+import 'package:dsw_2020_demo/controllers/image_search.dart';
 
 class ImageSearchResultsTitle extends StatelessWidget {
-  const ImageSearchResultsTitle({
-    Key key,
-  }) : super(key: key);
+  const ImageSearchResultsTitle({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +16,13 @@ class ImageSearchResultsTitle extends StatelessWidget {
             padding: const EdgeInsets.only(top: 15, bottom: 15),
             child: Align(
               alignment: Alignment.center,
-              child: Text(
-                context.watch<ImageSearch>().searchResultTitle,
-                style: Theme.of(context).textTheme.headline6,
+              child: Consumer<ImageSearch>(
+                builder: (context, imageSearch, child) {
+                  return Text(
+                    imageSearch.searchResultTitle,
+                    style: Theme.of(context).textTheme.headline6,
+                  );
+                },
               ),
             ),
           ),

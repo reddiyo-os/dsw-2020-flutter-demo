@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:dsw_2020_demo/blocs/image_search.dart';
+import 'package:dsw_2020_demo/controllers/image_search.dart';
 import 'package:dsw_2020_demo/ui/breakpoints.dart';
 
 class ImageSearchForm extends StatefulWidget {
@@ -57,8 +57,8 @@ class ImageSearchFormState extends State<ImageSearchForm> {
         onPressed: () {
           // Trigger form validation. If the result is true, the value entered is valid.
           if (_formKey.currentState.validate()) {
-            context.read<ImageSearch>().searchImages(_searchFieldController.text);
-            context.read<ImageSearch>().resultTitle = _searchFieldController.text;
+            Provider.of<ImageSearch>(context, listen: false).searchImages(_searchFieldController.text);
+            Provider.of<ImageSearch>(context, listen: false).resultTitle = _searchFieldController.text;
           }
         },
       ),
@@ -73,7 +73,10 @@ class ImageSearchFormState extends State<ImageSearchForm> {
         child: Builder(
           builder: (BuildContext context) {
             if (deviceWidth >= tabletBreakpoint) {
-              return Row(children: _formWidgets);
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: _formWidgets,
+              );
             } else {
               return Column(
                 children: _formWidgets,

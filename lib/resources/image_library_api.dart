@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:dsw_2020_demo/utils/config.dart';
 import 'package:dsw_2020_demo/models/unsplash_image.dart';
 
-class ImageLibraryApiProvider {
+class ImageLibraryApiResource {
   static Future<List<UnsplashImage>> searchImages(String query) async {
     print('SEARCHING IMAGES FOR: $query');
     var url = Uri.parse('https://api.unsplash.com/search/photos/?client_id=$unsplashClientId&query=$query');

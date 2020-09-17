@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dsw_2020_demo/models/unsplash_image.dart';
-import 'package:dsw_2020_demo/providers/image_library_api_provider.dart';
+import 'package:dsw_2020_demo/resources/image_library_api.dart';
 
 class ImageSearch extends ChangeNotifier {
   String _resultTitle = 'SUGGESTED DESTINATIONS';
@@ -14,7 +14,7 @@ class ImageSearch extends ChangeNotifier {
   List<UnsplashImage> get results => _results;
 
   void searchImages(String query) async {
-    _results = await ImageLibraryApiProvider.searchImages(query);
+    _results = await ImageLibraryApiResource.searchImages(query);
     notifyListeners();
   }
 }
